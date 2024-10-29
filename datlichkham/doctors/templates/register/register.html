@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <style>
+        body {
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+        }
+
+        .logo-name {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .info-banner {
+            flex-grow: 1;
+            background-color: white;
+            height: 100vh;
+            min-width: 500px;
+        }
+
+        .banner {
+            flex-grow: 3;
+            background-color: green;
+            height: 100vh;
+        }
+
+        .main-view-input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 50px;
+        }
+
+        .input-info {
+            align-self: stretch;
+            height: 40px;
+            border-radius: 8px;
+            border-width: 1px;
+            border-color: grey;
+            margin-top: 20px;
+            padding-left: 16px;
+            padding-right: 16px;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        .button-register {
+            display: flex;
+            align-self: stretch;
+            height: 50px;
+            border-radius: 8px;
+            margin-left: 50px;
+            margin-right: 50px;
+            justify-content: center;
+            align-items: center;
+            border-width: 0px;
+            background-color: blue;
+            margin-top: 20px;
+        }
+
+        .question-sign {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+
+    <title>Đăng Ký</title>
+
+    <div class="flex-container">
+        <div class="info-banner">
+            <div class="logo-name">
+                <h1 style="color: blue;">GudMec</h1>
+                <h1 style="color: black;">Clinic</h1>
+            </div>
+            <div class="main-view-input">
+                <h1 style="color: black;">Đăng ký tài khoản</h1>
+                <p style="color: gray; margin-top: 20px;">Vui lòng điền thông tin của bạn để tạo tài khoản mới</p>
+
+                <form id="registerForm">
+                    <input class="input-info" type="text" id="username" name="username" placeholder="Tên đăng nhập">
+                    <input class="input-info" type="email" id="email" name="email" placeholder="Địa chỉ email">
+                    <input class="input-info" type="password" id="password" name="password" placeholder="Mật khẩu">
+                    <button type="submit" class="button-register" id="registerButton">
+                        <p style="color: white; font-weight: 600;">Đăng ký</p>
+                    </button>
+                </form>
+
+                <div class="question-sign" style="margin-top: 20px;">
+                    <h4>Đã có tài khoản? </h4>
+                    <h4 style="margin-left: 5px;"><a href="{% url 'login' %}">Đăng nhập</a></h4>
+                </div>
+                <div class="question-sign">
+                    <p style="font-weight: lighter;">
+                        <b> Điều khoản </b>
+                        <b> &nbsp;&nbsp; Chính sách bảo mật</b>
+                        <b> &nbsp;&nbsp; Trợ giúp</b>
+                        <b> &nbsp;&nbsp; English</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner">
+            <div class="slideshow-container">
+                <div class="slideshow-content">
+                    <div class="slide">
+                        <img class="image-slide" src="{% static 'images/anh1.jpg' %}" alt="slide1">
+                    </div>
+                    <div class="slide">
+                        <img class="image-slide" src="{% static 'images/anh2.jpg' %}" alt="slide2">
+                    </div>
+                    <div class="slide">
+                        <img class="image-slide" src="{% static 'images/anh3.jpg' %}" alt="slide3">
+                    </div>
+                    <div class="slide">
+                        <img class="image-slide" src="{% static 'images/anh4.jpg' %}" alt="slide4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/register.js' %}"></script>
+
+</body>
+</html>

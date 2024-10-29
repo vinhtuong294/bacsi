@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>
+    {% if instance %}
+      Editing Review for <em>{{ related_instance.title }}</em>
+    {% else %}
+      New Review for <em>{{ related_instance.title }}</em>
+    {% endif %}
+  </h2>
+  <p>For {{ related_model_type }} <em>{{ related_instance }}</em></p>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">
+      {% if instance %}Save{% else %}Create{% endif %}
+    </button>
+  </form>
+{% endblock %}

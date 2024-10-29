@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ book.title }}</h1>
+  <p>{{ book.description }}</p>
+  <a href="{% url 'review_create' book.pk %}" class="btn btn-primary">Add Review</a>
+  <h2>Reviews</h2>
+  <ul>
+    {% for review in book.review_set.all %}
+      <li>
+        <strong>{{ review.rating }}</strong> - {{ review.comment }}
+        <a href="{% url 'review_edit' book.pk review.pk %}" class="btn btn-secondary">Edit Review</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
